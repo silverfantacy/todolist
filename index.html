@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do List</title>
+    <!-- Tocas UI：CSS 與元件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.2/tocas.css">
+    <link rel="stylesheet" href="css/all.css">
+    <!-- Tocas JS：模塊與 JavaScript 函式 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.2/tocas.js"></script>
+
+</head>
+
+<body>
+    <div class="ts very narrow container segment appVue">
+        <h1 class="ts center aligned header">To Do List</h1>
+        <!--輸入列-->
+        <div class="ts fluid input">
+            <input type="text" placeholder="輸入事項" v-model="newTodo" @keyup.enter="addTodo(newTodo)">
+        </div>
+        <!--顯示列-->
+        <div class="ts selection segmented list">
+            <li class="item" v-for="todo in filterTodos" v-bind:class="{ active: todo.completed}" class="ts toggle checkbox" @click="completeTodo(todo)" >
+                <!--<input type="checkbox" v-model="todo.completed">-->
+                {{todo.content}}<button class="ts small close button" @click.prevent="removeTodo(todo)"></button>
+            </li>
+        </div>
+        <!--按鈕-->
+        <div class="buttons box">
+            <div class="ts mini buttons">
+                <button class="ts positive button" @click.prevent="showCompleteTodo()">已處理</button>
+                <button class="ts negative button" @click.prevent="showUncompletedTodo()">未處理</button>
+                <button class="ts info button" @click.prevent="showAllTodo()">全部顯示</button>
+            </div>
+            <div class="ts mini buttons">
+                <button class="ts primary button" @click.prevent="allCompleteTodo()">全部完成</button>
+                <button class="ts inverted button" @click.prevent="deletCompleteTodo()">刪除完成</button>
+            </div>
+        </div>
+        <!-- 查看物件內容 -->
+        <div class="ts message">
+            <pre>{{this.todos}}</pre>
+        </div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js'></script>
+    <script src="js/all.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+html {
+  background-color: #ddd;
+  padding-top: 5%; }
+
+.item > button {
+  position: absolute !important;
+  right: 1em !important; }
+
+.buttons.box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+li {
+  height: 45px; }
+
+.active {
+  text-decoration: line-through; }
